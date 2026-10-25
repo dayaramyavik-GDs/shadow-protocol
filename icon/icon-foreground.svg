@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108">
+  <!-- Adaptive-icon foreground layer. Key art stays inside the 66-unit safe circle centred on (54,54). -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="eyeglow" x="-200%" y="-300%" width="500%" height="700%">
+      <feGaussianBlur stdDeviation="1.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="cloak" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16202c"/>
+      <stop offset="0.55" stop-color="#0a0f16"/>
+      <stop offset="1" stop-color="#05070b"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8fe9f6" stop-opacity="0.95"/>
+      <stop offset="0.6" stop-color="#5fd3e6" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#5fd3e6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- the protocol diamond -->
+  <g filter="url(#glow)" fill="none" stroke-linejoin="miter">
+    <path d="M54 23 L83 52 L54 81 L25 52 Z" stroke="#5fd3e6" stroke-width="3"/>
+    <path d="M54 30 L76 52 L54 74 L32 52 Z" stroke="#5fd3e6" stroke-width="0.9" stroke-opacity="0.7"/>
+  </g>
+  <!-- watching eye at the top vertex -->
+  <g filter="url(#glow)">
+    <path d="M47.5 33 Q54 28 60.5 33 Q54 38 47.5 33 Z" fill="#050912" stroke="#bdf4fb" stroke-width="1"/>
+    <circle cx="54" cy="33" r="1.8" fill="#bdf4fb"/>
+  </g>
+
+  <!-- hooded operative: peaked hood, narrow shoulders, coat falling to the frame edge -->
+  <path d="M54 38.5 C49 40 44.5 44.5 43 51.5 C42 57 41 62 38.5 67 L31 80 C28.5 85 27.5 90 27 96 L81 96 C80.5 90 79.5 85 77 80 L69.5 67 C67 62 66 57 65 51.5 C63.5 44.5 59 40 54 38.5 Z"
+        fill="url(#cloak)" stroke="url(#rim)" stroke-width="0.9"/>
+  <!-- coat opening and collar -->
+  <path d="M45 67 C48 69.5 51 70.5 54 70.5 C57 70.5 60 69.5 63 67" fill="none" stroke="#5fd3e6" stroke-opacity="0.22" stroke-width="0.6"/>
+  <path d="M54 70.5 L52.5 96 M54 70.5 L55.5 96" fill="none" stroke="#5fd3e6" stroke-opacity="0.14" stroke-width="0.5"/>
+  <!-- face in shadow -->
+  <path d="M54 46.5 C49.5 46.5 46.8 50.5 46.8 55.5 C46.8 61 50 64.5 54 64.5 C58 64.5 61.2 61 61.2 55.5 C61.2 50.5 58.5 46.5 54 46.5 Z" fill="#000"/>
+  <!-- glowing eyes -->
+  <g filter="url(#eyeglow)" fill="#d9fbff">
+    <path d="M48.9 54.6 L52.4 55.7 L52 56.9 L49.2 56 Z"/>
+    <path d="M59.1 54.6 L55.6 55.7 L56 56.9 L58.8 56 Z"/>
+  </g>
+
+  <!-- shattered chain fragments -->
+  <g fill="#ff5a48">
+    <rect x="30" y="88" width="2.2" height="2.2" transform="rotate(25 31 89)"/>
+    <rect x="77" y="86" width="2.6" height="2.6" transform="rotate(-20 78 87)"/>
+    <rect x="25" y="79" width="1.6" height="1.6" transform="rotate(40 26 80)" opacity="0.8"/>
+    <rect x="83" y="77" width="1.6" height="1.6" transform="rotate(15 84 78)" opacity="0.8"/>
+  </g>
+</svg>

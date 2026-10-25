@@ -1,5 +1,7 @@
 # Shadow Protocol
 
+<img src="icon/play-store-icon-512.png" alt="Shadow Protocol app icon" width="128">
+
 A side-scrolling stealth-action game about elevators, inspired by classic arcade spy games. This is the first playable vertical slice: one tower, three floors, one mission.
 
 The whole game is a single `index.html` file with no build step and no dependencies. Open it in a browser to play.
@@ -66,3 +68,7 @@ cd android
 ```
 
 The bundle is written to `android/app/build/outputs/bundle/release/app-release.aab`. Release builds are signed with an upload key that is kept outside the repo: by default the build reads `~/.shadow-protocol-signing/keystore.properties` (set `SHADOW_SIGNING_PROPS` to use another path). The file has four keys: `storeFile`, `storePassword`, `keyAlias`, `keyPassword`. Without it, `bundleRelease` produces an unsigned bundle that Google Play will reject.
+
+### App icon
+
+The launcher icon is drawn as two SVG layers in `icon/` (background and foreground, Android adaptive-icon format). After editing them, run `npm run icons` to regenerate every launcher size in `android/app/src/main/res/mipmap-*` plus `icon/play-store-icon-512.png` for the Play Store listing.
