@@ -57,3 +57,12 @@ cd android
 ```
 
 The APK is written to `android/app/build/outputs/apk/debug/app-debug.apk`. `npm run sync` copies `index.html` into `www/` and syncs it into the Android project, so run it after every change to the game. The app is locked to landscape.
+
+### Play Store bundle (.aab)
+
+```bash
+cd android
+./gradlew bundleRelease
+```
+
+The bundle is written to `android/app/build/outputs/bundle/release/app-release.aab`. Release builds are signed with an upload key that is kept outside the repo: by default the build reads `~/.shadow-protocol-signing/keystore.properties` (set `SHADOW_SIGNING_PROPS` to use another path). The file has four keys: `storeFile`, `storePassword`, `keyAlias`, `keyPassword`. Without it, `bundleRelease` produces an unsigned bundle that Google Play will reject.

@@ -1,5 +1,13 @@
 apply plugin: 'com.android.application'
 
+// Release signing reads an upload key kept outside the repo.
+// Default location: ~/.shadow-protocol-signing/keystore.properties (override with SHADOW_SIGNING_PROPS).
+def signingPropsFile = file(System.getenv('SHADOW_SIGNING_PROPS') ?: "${System.getProperty('user.home')}/.shadow-protocol-signing/keystore.properties")
+def signingProps = new Properties()
+if (signingPropsFile.exists()) {
+    signingPropsFile.withInputStream { signingProps.load(it) }
+}
+
 android {
     namespace "io.github.dayaramyavik.shadowprotocol"
     compileSdk rootProject.ext.compileSdkVersion
@@ -8,7 +16,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "0.1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -16,8 +24,21 @@ android {
             ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        if (signingProps['storeFile']) {
+            upload {
+                storeFile file(signingProps['storeFile'])
+                storePassword signingProps['storePassword']
+                keyAlias signingProps['keyAlias']
+                keyPassword signingProps['keyPassword']
+            }
+        }
+    }
     buildTypes {
         release {
+            if (signingProps['storeFile']) {
+                signingConfig signingConfigs.upload
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
