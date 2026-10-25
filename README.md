@@ -4,6 +4,10 @@ A side-scrolling stealth-action game about elevators, inspired by classic arcade
 
 The whole game is a single `index.html` file with no build step and no dependencies. Open it in a browser to play.
 
+**Play in the browser:** https://dayaramyavik-gds.github.io/shadow-protocol/
+
+**Play on Android:** download the APK from the [latest release](https://github.com/dayaramyavik-GDs/shadow-protocol/releases/latest), open it on your phone, and allow installs from that source when Android asks.
+
 ## The mission
 
 You come in through the roof of Halvorsen Tower.
@@ -40,3 +44,16 @@ Optional goals: trigger no alarms, kill no one, and recover both intel folders.
 - A debrief screen with a stealth grade and best score (stored locally in the browser).
 
 All art is drawn in code and all sound is synthesized, so there are no external assets.
+
+## Building the Android app
+
+The Android app wraps `index.html` with [Capacitor](https://capacitorjs.com/) 6. You need Node.js, JDK 17 (Capacitor 6 does not build with newer JDKs), and the Android SDK with platform 35.
+
+```bash
+npm install
+npm run sync
+cd android
+./gradlew assembleDebug
+```
+
+The APK is written to `android/app/build/outputs/apk/debug/app-debug.apk`. `npm run sync` copies `index.html` into `www/` and syncs it into the Android project, so run it after every change to the game. The app is locked to landscape.
