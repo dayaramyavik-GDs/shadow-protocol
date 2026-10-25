@@ -1,5 +1,6 @@
 {
   "appId": "io.github.dayaramyavik.shadowprotocol",
   "appName": "Shadow Protocol",
-  "webDir": "www"
+  "webDir": "www",
+  "backgroundColor": "#090d15"
 }

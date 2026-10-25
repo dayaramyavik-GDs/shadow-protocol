@@ -71,4 +71,4 @@ The bundle is written to `android/app/build/outputs/bundle/release/app-release.a
 
 ### App icon
 
-The launcher icon is drawn as two SVG layers in `icon/` (background and foreground, Android adaptive-icon format). After editing them, run `npm run icons` to regenerate every launcher size in `android/app/src/main/res/mipmap-*` plus `icon/play-store-icon-512.png` for the Play Store listing.
+The launcher icon is drawn as two SVG layers in `icon/` (background and foreground, Android adaptive-icon format). After editing them, run `npm run icons` to regenerate every launcher size in `android/app/src/main/res/mipmap-*`, the launch splash screens in `drawable*/splash.png`, and `icon/play-store-icon-512.png` for the Play Store listing.
